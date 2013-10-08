@@ -1,0 +1,9 @@
+<h1>Your Messages</h1>
+<h2>Received Messages</h2>
+  <p>
+    <%= render partial:'display', locals: { messages: @received_messages } %>
+  </p>
+<h2>Sent Messages</h2>
+  <p>
+    <%= render partial:'display', locals: { messages: @sent_messages } %>
+  </p>

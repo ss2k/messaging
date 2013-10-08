@@ -1,0 +1,8 @@
+<h1>Send Message</h1>
+
+<%= simple_form_for [current_user, @message] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :body %>
+  <%= f.input :receiver_id, as: :hidden, input_html: { value: params[:receiver_id] } %>
+  <%= f.submit %>
+<% end %>

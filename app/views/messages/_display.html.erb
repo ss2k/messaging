@@ -1,0 +1,6 @@
+<% messages.each do |m| %>
+  <%= link_to m.title, user_message_path(current_user, m) %> - 
+  <%= link_to m.sender.email, user_path(m.sender) %> - 
+  <%= proper_time(m.created_at) %>
+  <br />
+<% end %>

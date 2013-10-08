@@ -1,0 +1,14 @@
+<h1>Your message</h1>
+<b><%= @message.title %></b>
+<br />
+  <%= render partial: 'msg', locals: {msg: @message} %>
+<% @responses.each do |r| %>
+  <%= render partial: 'msg', locals: {msg: r} %>
+<% end %>
+
+<%= simple_form_for [@message, @response],  :url => create_response_user_message_path, method: 'post' do |f| %>
+  <%= f.input :body, label: 'Response',:input_html => { :style => 'height: 150px'} %>
+  <%= f.input :receiver_id, :as => :hidden, :input_html => { :value => @message.sender == current_user ? @message.receiver_id : @message.sender_id  } %>
+  <%= f.input :sender_id, :as => :hidden, :input_html => { :value => current_user.id } %>
+  <%= f.submit %>
+<% end %>

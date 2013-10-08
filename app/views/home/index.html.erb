@@ -1,0 +1,6 @@
+<h1>Welcome to your page</h1>
+<%= link_to "Your Messages", user_messages_path(current_user) %>
+<hr />
+<% @users.each do |user| %>
+  <%= link_to user.email, user_path(user) %>
+<% end %>

@@ -1,0 +1,4 @@
+<i><%= msg.body %></i>
+ by <%= link_to(msg.sender.email, user_path(msg.sender)) %> on
+    <%= proper_time(msg.created_at)%>
+<br /><br />
